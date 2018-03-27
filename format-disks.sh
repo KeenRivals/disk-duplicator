@@ -19,12 +19,15 @@ y
 n
 
 
+
 0700
 w
 y
 EOF
+	sleep 2
 	partprobe ${1}
-	mkfs.ntfs -Q -I ${1}
+	sleep 2
+	mkfs.ntfs -Q -I ${1}1
 }
 
 export -f formatMedia
