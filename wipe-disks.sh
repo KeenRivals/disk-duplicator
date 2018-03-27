@@ -22,4 +22,6 @@ echo Write complete at $(date -Is).
 
 umountMedia
 
+beep
+
 echo Batch complete!
