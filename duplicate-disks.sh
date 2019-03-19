@@ -34,6 +34,7 @@ echo Writes complete at $(date -Is).
 
 umountMedia
 
-beep
+# Send a terminal bell character.
+tput bel
 
 echo Batch complete!
