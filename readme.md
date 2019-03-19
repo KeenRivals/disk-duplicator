@@ -1,6 +1,8 @@
 # Disk Duplicator
 
-Write a disk.img file to multiple targets in parallel.
+Write a disk.img file to multiple targets in parallel. Writes to every disk except the one mounted as root.
+
+**WARNING**: These scripts are super dangerous, and indiscriminately destroy data. It's not recommended to run them on a machine with any data you care about.
 
 # Setup
 
