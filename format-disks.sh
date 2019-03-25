@@ -32,15 +32,17 @@ EOF
 
 export -f formatMedia
 
+function getNonRootDisks {
+	rootDisk=$(findmnt -o Source / | egrep -o "sd[a-z]|nvme[0-9]n[0-9]")
+	find /dev/ -regex "/dev/sd[a-z]*" ! -name $rootDisk
+}
+
 umountMedia
 
 echo Started writing media at $(date -Is).
 
-#Find which drive is mounted as root.
-rootDisk=$(findmnt -o Source / | egrep -o "sd[a-z]")
-
 # Find all drives except sda. Pipe to Parallel.
-find /dev/ -regex "/dev/sd[a-z]*" ! -name $rootDisk -print0 | parallel --will-cite -P30 -n1 -0 formatMedia {.}
+getNonRootDisks | parallel --will-cite -P30 -n1 formatMedia {}
 
 echo Write complete at $(date -Is).
 
