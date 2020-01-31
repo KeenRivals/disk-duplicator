@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Created: 2018-03-23
-# Usage: disk-duplicator.sh
+# Usage: disk-duplicator.sh -s sha512sum -f source.img
 # Must be run as root. Will wipe all disks on the system other than root.
 
 set -uo pipefail
